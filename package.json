@@ -1,0 +1,19 @@
+{
+  "name": "vibe",
+  "version": "1.0.0",
+  "description": "meet new people",
+  "license": "ISC",
+  "author": "\"muneeb\"",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js"
+},
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
