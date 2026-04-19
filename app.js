@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const db = require("./config/database");
-const user = require("./models/user");
+const User = require("./models/user");
 const port = 3000;
 
 db()
@@ -15,6 +15,19 @@ db()
     console.error("Database connection failed:", error);
   });
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+app.post("/signup", async (req, res) => {
+  try {
+    const user = new User({
+      firstname: "ggggg",
+      lastName: "hhhh",
+      email: "muneeb@example.com",
+      password: "password123",
+      age: 25,
+      gender: "Male",
+    });
+    await user.save();
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 });

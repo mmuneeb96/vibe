@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
 const db = async () => {
   try {
-    await mongoose.connect(
-      "mongodb://muneeb:muneeb@ac-vw10nzt-shard-00-00.v2o8xad.mongodb.net:27017,ac-vw10nzt-shard-00-01.v2o8xad.mongodb.net:27017,ac-vw10nzt-shard-00-02.v2o8xad.mongodb.net:27017/?ssl=true&replicaSet=atlas-ahnibj-shard-0&authSource=admin&appName=muneeb/vibe",
-    );
+    await mongoose.connect(process.env.MONGO_URL);
   } catch (error) {
     console.error("Database connection error:", error);
   }
